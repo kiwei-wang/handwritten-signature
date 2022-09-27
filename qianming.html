@@ -1,0 +1,20 @@
+<canvas id="canvasId" width="600" height="400" ></canvas>
+<script>
+  const cvs = document.getElementById("canvasId");
+  const ctx = cvs.getContext("2d");
+  let isDragging = false;
+  cvs.addEventListener("mousedown", (ev) => {
+    isDragging = true;
+      ctx.moveTo(ev.pageX, ev.pageY);
+
+  });
+  cvs.addEventListener("mousemove", (ev) => {
+    if(isDragging){
+        ctx.lineTo(ev.pageX,ev.pageY);
+        ctx.stroke();
+    }
+  });
+  cvs.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
+</script>
